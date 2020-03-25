@@ -1,0 +1,5 @@
+.con {
+    grid-area: c;
+    background-color: cadetblue;
+    grid-row: auto;
+}
