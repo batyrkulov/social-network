@@ -4,20 +4,22 @@ import Person from "./Person/Person";
 import Message from "./Message/Message";
 
 const Dialogs = (props) => {
+    let personsData = [
+        {id: 1, name: "John"},
+        {id: 2, name: "Don"}
+    ];
+
+    let personsElement = personsData.map(person => <Person id={person.id} name={person.name} />);
+
     return (
         <div className={d.dialog}>
             <div className={d.persons}>
-                <Person/>
-                <Person/>
-                <Person/>
-                <Person/>
-                <Person/>
-                <Person/>
+                {personsElement}
             </div>
             <div className={d.messages}>
-                <Message/>
-                <Message/>
-                <Message/>
+                <Message text='Yo'/>
+                <Message text='hi'/>
+                <Message text='How are you?'/>
             </div>
         </div>
     );

@@ -5,9 +5,9 @@ const MyPosts = () => {
     return (
         <div>
             My Posts
-            <Post/>
-            <Post/>
-            <Post/>
+            <Post text='post 1'/>
+            <Post text='post 2'/>
+            <Post text='post 3'/>
         </div>
     );
 }

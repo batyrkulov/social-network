@@ -1,10 +1,11 @@
 import React from "react";
-import d from './Person.module.css';
+import p from './Person.module.css';
+import {NavLink} from 'react-router-dom';
 
 const Person = (props) => {
     return (
         <div>
-            person
+            <NavLink to={'/dialogs/'+props.id} activeClassName={p.activeLink}>{props.name}</NavLink>
         </div>
     );
 }

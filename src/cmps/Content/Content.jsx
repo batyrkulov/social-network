@@ -7,8 +7,8 @@ import Dialogs from "./Dialogs/Dialogs";
 const Content = () => {
     return (
         <div className={c.con}>
-            <Route exact path='/account' component={Account} />
-            <Route exact path='/dialogs' component={Dialogs} />
+            <Route  path='/account' component={Account} />
+            <Route  path='/dialogs' component={Dialogs} />
         </div>
     );
 }
