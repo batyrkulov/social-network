@@ -4,11 +4,11 @@ import {Route} from 'react-router-dom';
 import Account from "./Account/Account";
 import Dialogs from "./Dialogs/Dialogs";
 
-const Content = () => {
+const Content = (props) => {
     return (
         <div className={c.con}>
-            <Route  path='/account' component={Account} />
-            <Route  path='/dialogs' component={Dialogs} />
+            <Route  path='/account' render={()=><Account  state={props.state.accountPage} addPost={props.addPost}    updateNewPost={props.updateNewPost}/>} />
+            <Route  path='/dialogs' render={()=><Dialogs state={props.state.dialogsPage} />} />
         </div>
     );
 }

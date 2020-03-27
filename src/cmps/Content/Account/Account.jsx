@@ -2,11 +2,11 @@ import React from 'react';
 import MyPosts from "./MyPosts/MyPosts";
 import a from './Account.module.css'
 
-const Account = () => {
+const Account = (props) => {
     return (
         <div className={a.account}>
             account
-            <MyPosts/>
+            <MyPosts posts={props.state.posts} addPost={props.addPost} newPost={props.state.newPost}   updateNewPost={props.updateNewPost}/>
         </div>
     );
 }

@@ -3,7 +3,7 @@ import React from 'react';
 const Post = (props) => {
     return (
         <div>
-            {props.text}
+            {props.text} | {props.likesCount}
         </div>
     );
 }

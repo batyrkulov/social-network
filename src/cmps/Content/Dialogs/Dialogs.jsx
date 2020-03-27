@@ -4,12 +4,10 @@ import Person from "./Person/Person";
 import Message from "./Message/Message";
 
 const Dialogs = (props) => {
-    let personsData = [
-        {id: 1, name: "John"},
-        {id: 2, name: "Don"}
-    ];
 
-    let personsElement = personsData.map(person => <Person id={person.id} name={person.name} />);
+
+    let personsElement = props.state.persons.map(person => <Person id={person.id} name={person.name} />);
+    let messagesElement = props.state.messages.map(message => <Message id={message.id} text={message.text}/>);
 
     return (
         <div className={d.dialog}>
@@ -17,9 +15,7 @@ const Dialogs = (props) => {
                 {personsElement}
             </div>
             <div className={d.messages}>
-                <Message text='Yo'/>
-                <Message text='hi'/>
-                <Message text='How are you?'/>
+                {messagesElement}
             </div>
         </div>
     );

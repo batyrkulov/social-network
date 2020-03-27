@@ -6,13 +6,13 @@ import Content from "./cmps/Content/Content";
 import Footer from "./cmps/Footer/Footer";
 import {BrowserRouter} from "react-router-dom";
 
-function App() {
+function App(props) {
   return (
       <BrowserRouter>
           <div className="App">
               <Header />
               <Navbar />
-              <Content />
+              <Content state={props.state} addPost={props.addPost}  updateNewPost={props.updateNewPost}/>
               <Footer />
           </div>
       </BrowserRouter>
