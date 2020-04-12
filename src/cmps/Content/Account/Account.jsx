@@ -1,12 +1,12 @@
 import React from 'react';
-import MyPosts from "./MyPosts/MyPosts";
 import a from './Account.module.css'
+import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
-const Account = (props) => {
+const Account = () => {
     return (
         <div className={a.account}>
             account
-            <MyPosts posts={props.state.posts} addPost={props.addPost} newPost={props.state.newPost}   updateNewPost={props.updateNewPost}/>
+            <MyPostsContainer />
         </div>
     );
 }

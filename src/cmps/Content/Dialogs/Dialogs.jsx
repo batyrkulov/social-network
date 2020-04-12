@@ -4,10 +4,19 @@ import Person from "./Person/Person";
 import Message from "./Message/Message";
 
 const Dialogs = (props) => {
+    let state = props.dialogsPage;
 
+    let personsElement = state.persons.map(person => <Person id={person.id} key={person.id} name={person.name} />);
+    let messagesElement = state.messages.map(message => <Message id={message.id} key={message.id} text={message.text}/>);
+    let newMessageText = state.newMessageText;
 
-    let personsElement = props.state.persons.map(person => <Person id={person.id} name={person.name} />);
-    let messagesElement = props.state.messages.map(message => <Message id={message.id} text={message.text}/>);
+    let onSendMessageClick = ()=> {
+        props.addMessage();
+    }
+    let onNewMessageChange = (e)=> {
+        let text = e.target.value;
+        props.updateNewMessageText(text);
+    }
 
     return (
         <div className={d.dialog}>
@@ -15,7 +24,11 @@ const Dialogs = (props) => {
                 {personsElement}
             </div>
             <div className={d.messages}>
-                {messagesElement}
+                <div>{messagesElement}</div>
+                <div>
+                    <div><textarea onChange={onNewMessageChange} value={newMessageText} placeholder="Enter"/></div>
+                    <div><button onClick={onSendMessageClick}>Send</button></div>
+                </div>
             </div>
         </div>
     );
