@@ -1,8 +1,8 @@
 import React from 'react';
 import style from './ProfileInfo.module.css'
 import Preloader from "../../../Common/Preloader/Preloader";
-import ProfileStatusContainer from "./ProfileStatus/ProfileStatusContainer";
 import defaultPhoto from '../../../../assets/img/userDefaultPhoto.png';
+import ProfileStatusWithHook from "./ProfileStatus/ProfileStatusWithHook";
 
 const ProfileInfo = props => {
     if (!props.profile) return <Preloader/>
@@ -16,7 +16,7 @@ const ProfileInfo = props => {
             }
         </div>
         <div>
-            <ProfileStatusContainer />
+            <ProfileStatusWithHook />
         </div>
         <div>
             Other info

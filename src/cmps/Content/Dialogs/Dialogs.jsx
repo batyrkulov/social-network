@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import d from './Dialogs.module.css';
 import Person from "./Person/Person";
 import Message from "./Message/Message";

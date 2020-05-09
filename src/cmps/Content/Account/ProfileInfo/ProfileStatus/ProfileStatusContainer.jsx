@@ -24,7 +24,7 @@ class ProfileStatusContainer extends React.Component {
         if (this.state.editMode) {
             this.props.updateStatus(this.state.statusNewText);
         }
-        this.setState({editMode: this.state.editMode ? false : true});
+        this.setState({editMode: !this.state.editMode});
     }
 
     onStatusChange = (e) => {
