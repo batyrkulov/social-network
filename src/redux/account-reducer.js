@@ -13,7 +13,7 @@ let initialState = {
     status: ''
 }
 
-const accountReducer = (state=initialState, action)=> {
+const accountReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST: {
             return {
@@ -36,30 +36,24 @@ const accountReducer = (state=initialState, action)=> {
     }
 }
 
-export const addPostAC = newPostText=> ({type: ADD_POST, newPostText});
-export const setProfile = profile=>({type: SET_PROFILE, profile});
+export const addPostAC = newPostText => ({type: ADD_POST, newPostText});
+export const setProfile = profile => ({type: SET_PROFILE, profile});
 export const setStatus = status => ({type: SET_STATUS, status});
 
-export const getProfile = userId=> dispatch=> {
-    usersAPI.getProfile(userId)
-        .then(profile=>{
-            dispatch(setProfile(profile));
-        });
+export const getProfile = userId => async dispatch => {
+    let profile = await usersAPI.getProfile(userId);
+    dispatch(setProfile(profile));
 }
 
-export const getStatus = userId => dispatch=> {
-    usersAPI.getStatus(userId)
-        .then(status=>{
-            dispatch(setStatus(status));
-        });
+export const getStatus = userId => async dispatch => {
+    let status = await usersAPI.getStatus(userId);
+    dispatch(setStatus(status));
 }
 
-export const updateStatus = status => dispatch => {
-    usersAPI.updateStatus(status)
-        .then(bool=> {
-            if (bool)
-                dispatch(setStatus(status));
-        })
+export const updateStatus = status => async dispatch => {
+    let bool = await usersAPI.updateStatus(status);
+    if (bool)
+        dispatch(setStatus(status));
 }
 
 export default accountReducer;

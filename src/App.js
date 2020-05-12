@@ -3,7 +3,7 @@ import './App.css';
 import Navbar from "./cmps/Navbar/Navbar";
 import Content from "./cmps/Content/Content";
 import Footer from "./cmps/Footer/Footer";
-import {BrowserRouter} from "react-router-dom";
+import {HashRouter} from "react-router-dom";
 import HeaderContainer from "./cmps/Header/HeaderContainer";
 import {compose} from "redux";
 import {connect} from "react-redux";
@@ -18,14 +18,14 @@ class App extends React.Component {
   render() {
       if (this.props.inited) {
           return (
-              <BrowserRouter>
+              <HashRouter>
                   <div className="App">
                       <HeaderContainer/>
                       <Navbar/>
                       <Content/>
                       <Footer/>
                   </div>
-              </BrowserRouter>
+              </HashRouter>
           );
       } else {
           return <Preloader/>

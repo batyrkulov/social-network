@@ -1,13 +1,13 @@
 import React from "react";
 import style from './FormFieldReaction.module.css'
 
-export const FormFieldReaction = props => {
-    let hasError = props.meta.touched && props.meta.error;
+export const FormFieldReaction = ({meta: {touched, error}, children}) => {
+    let hasError = touched && error;
 
     return <div className={style.formField+ ' '+(hasError ? style.error : '')}>
         <div>
-            {props.children}
+            {children}
         </div>
-        {hasError && <div className={style.errorMessage}>{props.meta.error}</div>}
+        {hasError && <div className={style.errorMessage}>{error}</div>}
     </div>
 }

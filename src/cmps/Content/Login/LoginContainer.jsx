@@ -7,8 +7,8 @@ import {login} from "../../../redux/auth-reducer";
 import {Redirect} from "react-router-dom";
 import style from './Login.module.css';
 
-let LoginForm = props=>{
-    return <form onSubmit={props.handleSubmit}>
+let LoginForm = ({handleSubmit, error})=>{
+    return <form onSubmit={handleSubmit}>
         <div>
             <Field placeholder={`Email`} name={`email`} component={Input} validate={[required]}/>
         </div>
@@ -19,9 +19,9 @@ let LoginForm = props=>{
             <Field component={`input`} type={`checkbox`} name={`remember`}/> Remember me
         </div>
 
-        { props.error &&
+        { error &&
             <div className={style.formGlobalError}>
-                {props.error}
+                {error}
             </div>
         }
 
