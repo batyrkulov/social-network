@@ -6,7 +6,7 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
 const Account = props => {
     return (
         <div className={a.account}>
-            <ProfileInfo profile={props.profile}/>
+            <ProfileInfo isOwner={props.isOwner} updatePhoto={props.updatePhoto} profile={props.profile}/>
             <MyPostsContainer />
         </div>
     );

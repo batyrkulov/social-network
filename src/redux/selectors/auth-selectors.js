@@ -1,0 +1,1 @@
+export const selectCaptchaUrl = state=>state.auth.captchaUrl;

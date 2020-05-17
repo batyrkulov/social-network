@@ -16,8 +16,8 @@ export const authAPI =  {
             });
     },
 
-    login: (email, password, remember=false)=> {
-        return instance.post(`auth/login`, {email, password, remember})
+    login: (email, password, remember=false, captcha=null)=> {
+        return instance.post(`auth/login`, {email, password, remember, captcha})
             .then(response=>response.data);
     },
 
@@ -57,6 +57,22 @@ export const usersAPI = {
     updateStatus: status=> {
         return instance.put(`profile/status`, {status})
             .then(response=>response.data.resultCode===0);
+    },
+
+    updatePhoto: photoFile=> {
+        const formData = new FormData();
+        formData.append("image", photoFile);
+
+        return instance.put(`profile/photo`, formData)
+            .then(response=>response.data.resultCode===0 ? response.data.data.photos : false);
+    }
+
+}
+
+export const securityAPI =  {
+    getCaptchaUrl: ()=> {
+        return instance.get(`security/get-captcha-url`)
+            .then(response=>response.data.url);
     }
 
 }

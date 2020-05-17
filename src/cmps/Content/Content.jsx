@@ -17,6 +17,7 @@ const Content = () => {
                 <Route  path='/users' render={()=><UsersContainer />} />
             </Suspense>
             <Route  path='/login' render={()=><LoginContainer />} />
+            <Route  path='*' render={()=><div>404 not found</div>} />
         </div>
     );
 }

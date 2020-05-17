@@ -5,6 +5,11 @@ import Message from "./Message/Message";
 import {Field, reduxForm} from "redux-form";
 import {Textarea} from "../../Common/Form/Textarea";
 import {maxLenCreator, required} from "../../../utils/validators/validators";
+import styled from 'styled-components';
+
+const StyledP = styled.p`
+    color: red;
+`;
 
 const Dialogs = (props) => {
     let state = props.dialogsPage;
@@ -18,6 +23,7 @@ const Dialogs = (props) => {
 
     return (
         <div className={d.dialog}>
+            <StyledP>StyledPText</StyledP>
             <div className={d.persons}>
                 {personsElement}
             </div>
